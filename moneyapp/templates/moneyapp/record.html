@@ -1,0 +1,23 @@
+{% extends 'moneyapp/base.html' %}
+{% block content %}
+    <h2 class="text-center my-3">Record Transaction</h2>
+    <form method="post" class="p-3">
+        {% csrf_token %}
+        <div class="mb-3">{{ form.date.label_tag }} {{ form.date }}</div>
+        <div class="mb-3">{{ form.amount.label_tag }} {{ form.amount }}</div>
+        <div class="mb-3">{{ form.type.label_tag }} {{ form.type }}</div>
+        <div class="mb-3">{{ form.category.label_tag }} {{ form.category }}</div>
+        <div class="mb-3">{{ form.goal.label_tag }} {{ form.goal }}</div>
+        <div class="mb-3">{{ form.description.label_tag }} {{ form.description }}</div>
+        <button type="submit" class="btn btn-primary w-100">Save</button>
+    </form>
+    <style>
+        select, input, textarea {
+            width: 100%; /* Full width on mobile */
+            padding: 8px;
+        }
+        .btn {
+            font-size: 1.1rem; /* Larger tap target */
+        }
+    </style>
+{% endblock %}
