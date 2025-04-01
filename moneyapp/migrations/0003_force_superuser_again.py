@@ -14,7 +14,7 @@ def force_superuser_again(apps, schema_editor):
 class Migration(migrations.Migration):
     dependencies = [
         ('auth', '0012_alter_user_first_name_max_length'),
-        ('moneyapp', '0002_create_superuser'),
+        ('moneyapp', '0001_initial'),  # Changed to 0001_initial
     ]
 
     operations = [
