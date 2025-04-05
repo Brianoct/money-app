@@ -5,22 +5,27 @@ Django settings for money project.
 import os
 import dj_database_url
 from pathlib import Path
+import logging
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Log the BASE_DIR and LOCALE_PATHS for debugging
+logger.info(f"BASE_DIR: {BASE_DIR}")
+logger.info(f"LOCALE_PATHS: {os.path.join(BASE_DIR, 'locale')}")
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-secret-key-here')  # Use env var for security
-# Looks fine; defaults to insecure key if not set in env (safe for local).
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-secret-key-here')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Default to False for production
-# Problem: Locally, unless you set the env var DEBUG=True, this is False, hiding errors.
-# Fix: For local debugging, set DEBUG = True explicitly.
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']  # Update to your Render domain (e.g., ['your-app-name.onrender.com']) later
-# Fine for now; update to ['money-app-1yho.onrender.com'] for Render later.
+ALLOWED_HOSTS = ['*']
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,22 +35,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'moneyapp',
 ]
-# Looks good; all necessary apps are included.
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'moneyapp.middleware.ForceLanguageMiddleware',  # Added custom middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-# Standard middleware setup; Whitenoise is correct for static files.
 
 ROOT_URLCONF = 'money.urls'
-# Fine, assuming money/urls.py exists.
 
 TEMPLATES = [
     {
@@ -58,63 +62,73 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
 ]
-# Good; APP_DIRS=True means it looks in moneyapp/templates/.
 
 WSGI_APPLICATION = 'money.wsgi.application'
-# Correct.
 
+# Database
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'),
-        conn_max_age=600  # Render recommends this for PostgreSQL
+        conn_max_age=600
     )
 }
-# Locally, this uses SQLite (db.sqlite3). For Render, it needs DATABASE_URL set in env.
-# No immediate error here, but ensure db.sqlite3 exists locally.
 
+# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
-# Standard, no issues.
 
-LANGUAGE_CODE = 'en-us'
+# Internationalization
+LANGUAGE_CODE = 'es'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-# All fine.
 
+# Define available languages
+LANGUAGES = [
+    ('es', 'Spanish'),
+    ('en', 'English'),
+]
+
+# Directory for translation files
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# Warning in logs about 'static' not existing is benign unless you need static files now.
 
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# Fine.
 
+# Authentication settings
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
-# Matches your urls.py setup, no problems.
 
+# Logging for debugging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
+            'level': 'INFO',
         },
     },
     'root': {
         'handlers': ['console'],
-        'level': 'ERROR',  # Captures errors like 500
+        'level': 'INFO',
     },
 }
-# Good for catching 500 errors in logs, but won’t show in browser unless DEBUG=True.

@@ -1,21 +1,24 @@
 {% extends 'moneyapp/base.html' %}
+{% load i18n %}
 {% block content %}
-    <h2 class="text-center my-3">Settings</h2>
-    <h3>Categories</h3>
-    <ul class="list-group mb-3">
-        {% for cat in categories %}
-            <li class="list-group-item">{{ cat.name }} - ${{ cat.budget_amount }} ({{ cat.period }})</li>
-        {% empty %}
-            <li class="list-group-item">No categories yet.</li>
-        {% endfor %}
-    </ul>
-    <h3>Goals</h3>
-    <ul class="list-group mb-3">
-        {% for goal in goals %}
-            <li class="list-group-item">{{ goal.name }} - ${{ goal.target_amount }}</li>
-        {% empty %}
-            <li class="list-group-item">No goals yet.</li>
-        {% endfor %}
-    </ul>
-    <p class="text-center"><a href="/admin/" class="btn btn-secondary">Manage in Admin</a></p>
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">{% trans "Settings" %}</h2>
+        <h3>{% trans "Categories" %}</h3>
+        <ul class="list-group mb-4">
+            {% for cat in categories %}
+                <li class="list-group-item">{{ cat.name }} - ${{ cat.budget_amount }} ({{ cat.period }})</li>
+            {% empty %}
+                <li class="list-group-item">{% trans "No categories yet." %}</li>
+            {% endfor %}
+        </ul>
+        <h3>{% trans "Goals" %}</h3>
+        <ul class="list-group mb-4">
+            {% for goal in goals %}
+                <li class="list-group-item">{{ goal.name }} - ${{ goal.target_amount }}</li>
+            {% empty %}
+                <li class="list-group-item">{% trans "No goals yet." %}</li>
+            {% endfor %}
+        </ul>
+        <p class="text-center"><a href="/admin/" class="btn btn-secondary">{% trans "Manage in Admin" %}</a></p>
+    </div>
 {% endblock %}

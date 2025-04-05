@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-03 06:07-0400\n"
+"PO-Revision-Date: 2025-04-03 06:30-0400\n"
+"Last-Translator: Brian <brian@example.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#: .\moneyapp\templates\moneyapp\base.html:5
+#: .\moneyapp\templates\moneyapp\base.html:51
+msgid "Money App"
+msgstr "Aplicación de Dinero"
+
+#: .\moneyapp\templates\moneyapp\base.html:58
+msgid "Record"
+msgstr "Registrar"
+
+#: .\moneyapp\templates\moneyapp\base.html:61
+#: .\moneyapp\templates\moneyapp\stats.html:5
+msgid "Stats"
+msgstr "Estadísticas"
+
+#: .\moneyapp\templates\moneyapp\base.html:64
+#: .\moneyapp\templates\moneyapp\settings.html:5
+msgid "Settings"
+msgstr "Configuración"
+
+#: .\moneyapp\templates\moneyapp\base.html:70
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: .\moneyapp\templates\moneyapp\base.html:74
+#: .\moneyapp\templates\moneyapp\login.html:5
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: .\moneyapp\templates\moneyapp\base.html:77
+#: .\moneyapp\templates\moneyapp\register.html:5
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: .\moneyapp\templates\moneyapp\base.html:86
+msgid "Spanish"
+msgstr "Español"
+
+#: .\moneyapp\templates\moneyapp\base.html:87
+msgid "English"
+msgstr "Inglés"
+
+#: .\moneyapp\templates\moneyapp\login.html:10
+msgid "Invalid username or password."
+msgstr "Nombre de usuario o contraseña inválidos."
+
+#: .\moneyapp\templates\moneyapp\login.html:12
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+#: .\moneyapp\templates\moneyapp\login.html:14
+msgid "Don't have an account?"
+msgstr "¿No tienes una cuenta?"
+
+#: .\moneyapp\templates\moneyapp\login.html:14
+msgid "Sign up here"
+msgstr "Regístrate aquí"
+
+#: .\moneyapp\templates\moneyapp\record.html:5
+msgid "Record Transaction"
+msgstr "Registrar Transacción"
+
+#: .\moneyapp\templates\moneyapp\record.html:10
+msgid "All Transactions"
+msgstr "Todas las Transacciones"
+
+#: .\moneyapp\templates\moneyapp\record.html:11
+msgid "Income"
+msgstr "Ingresos"
+
+#: .\moneyapp\templates\moneyapp\record.html:12
+msgid "Expenses"
+msgstr "Gastos"
+
+#: .\moneyapp\templates\moneyapp\record.html:16
+msgid "Download CSV"
+msgstr "Descargar CSV"
+
+#: .\moneyapp\templates\moneyapp\record.html:28
+msgid "Save"
+msgstr "Guardar"
+
+#: .\moneyapp\templates\moneyapp\record.html:30
+msgid "Recent Transactions"
+msgstr "Transacciones Recientes"
+
+#: .\moneyapp\templates\moneyapp\record.html:35
+msgid "Date"
+msgstr "Fecha"
+
+#: .\moneyapp\templates\moneyapp\record.html:36
+msgid "Type"
+msgstr "Tipo"
+
+#: .\moneyapp\templates\moneyapp\record.html:37
+msgid "Amount"
+msgstr "Cantidad"
+
+#: .\moneyapp\templates\moneyapp\record.html:38
+msgid "Category"
+msgstr "Categoría"
+
+#: .\moneyapp\templates\moneyapp\record.html:39
+msgid "Goal"
+msgstr "Meta"
+
+#: .\moneyapp\templates\moneyapp\record.html:40
+msgid "Description"
+msgstr "Descripción"
+
+#: .\moneyapp\templates\moneyapp\record.html:41
+msgid "User"
+msgstr "Usuario"
+
+#: .\moneyapp\templates\moneyapp\record.html:56
+msgid "No transactions yet."
+msgstr "Aún no hay transacciones."
+
+#: .\moneyapp\templates\moneyapp\register.html:9
+msgid "Register"
+msgstr "Registrar"
+
+#: .\moneyapp\templates\moneyapp\register.html:21
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: .\moneyapp\templates\moneyapp\register.html:21
+msgid "Log in here"
+msgstr "Inicia sesión aquí"
+
+#: .\moneyapp\templates\moneyapp\settings.html:6
+msgid "Categories"
+msgstr "Categorías"
+
+#: .\moneyapp\templates\moneyapp\settings.html:11
+msgid "No categories yet."
+msgstr "Aún no hay categorías."
+
+#: .\moneyapp\templates\moneyapp\settings.html:14
+#: .\moneyapp\templates\moneyapp\stats.html:44
+msgid "Goals"
+msgstr "Metas"
+
+#: .\moneyapp\templates\moneyapp\settings.html:19
+#: .\moneyapp\templates\moneyapp\stats.html:70
+msgid "No goals yet."
+msgstr "Aún no hay metas."
+
+#: .\moneyapp\templates\moneyapp\settings.html:22
+msgid "Manage in Admin"
+msgstr "Administrar en el Admin"
+
+#: .\moneyapp\templates\moneyapp\stats.html:8
+msgid "Overview"
+msgstr "Resumen"
+
+#: .\moneyapp\templates\moneyapp\stats.html:9
+msgid "Total Income"
+msgstr "Ingresos Totales"
+
+#: .\moneyapp\templates\moneyapp\stats.html:10
+msgid "Total Expenses"
+msgstr "Gastos Totales"
+
+#: .\moneyapp\templates\moneyapp\stats.html:13
+msgid "Budgets"
+msgstr "Presupuestos"
+
+#: .\moneyapp\templates\moneyapp\stats.html:18
+#: .\moneyapp\templates\moneyapp\stats.html:49
+msgid "Name"
+msgstr "Nombre"
+
+#: .\moneyapp\templates\moneyapp\stats.html:19
+msgid "Spent"
+msgstr "Gastado"
+
+#: .\moneyapp\templates\moneyapp\stats.html:20
+msgid "Budget"
+msgstr "Presupuesto"
+
+#: .\moneyapp\templates\moneyapp\stats.html:21
+#: .\moneyapp\templates\moneyapp\stats.html:52
+msgid "Progress"
+msgstr "Progreso"
+
+#: .\moneyapp\templates\moneyapp\stats.html:39
+msgid "No budgets yet."
+msgstr "Aún no hay presupuestos."
+
+#: .\moneyapp\templates\moneyapp\stats.html:50
+msgid "Allocated"
+msgstr "Asignado"
+
+#: .\moneyapp\templates\moneyapp\stats.html:51
+msgid "Target"
+msgstr "Objetivo"
