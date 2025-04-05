@@ -1,5 +1,6 @@
 {% extends 'moneyapp/base.html' %}
 {% load i18n %}
+{% load format_filters %}  <!-- Load the custom filter -->
 {% block content %}
     <div class="container mt-4">
         <h2 class="text-center mb-4">{% trans "Stats" %}</h2>
@@ -29,7 +30,7 @@
                             <td>${{ cat.budget }}</td>
                             <td>
                                 <div class="progress">
-                                    <div class="progress-bar {% if cat.progress > 100 %}bg-danger{% elif cat.progress > 75 %}bg-warning{% else %}bg-success{% endif %}" role="progressbar" style="width: {{ cat.progress }}%;" aria-valuenow="{{ cat.progress }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar {% if cat.progress > 100 %}bg-danger{% elif cat.progress > 75 %}bg-warning{% else %}bg-success{% endif %}" role="progressbar" style="width: {{ cat.progress|format_for_css }}%;" aria-valuenow="{{ cat.progress|format_for_css }}" aria-valuemin="0" aria-valuemax="100">
                                         {{ cat.progress|floatformat:1 }}%
                                     </div>
                                 </div>
@@ -60,7 +61,7 @@
                             <td>${{ goal.target }}</td>
                             <td>
                                 <div class="progress">
-                                    <div class="progress-bar {% if goal.progress >= 100 %}bg-success{% elif goal.progress > 50 %}bg-info{% else %}bg-primary{% endif %}" role="progressbar" style="width: {{ goal.progress }}%;" aria-valuenow="{{ goal.progress }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar {% if goal.progress >= 100 %}bg-success{% elif goal.progress > 50 %}bg-info{% else %}bg-primary{% endif %}" role="progressbar" style="width: {{ goal.progress|format_for_css }}%;" aria-valuenow="{{ goal.progress|format_for_css }}" aria-valuemin="0" aria-valuemax="100">
                                         {{ goal.progress|floatformat:1 }}%
                                     </div>
                                 </div>
